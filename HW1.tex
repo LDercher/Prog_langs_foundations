@@ -92,10 +92,20 @@
    proof: if f has an inverse, then it is injective
    \begin{align}
     Let: a_1, a_2 \in A, f(a_1) = f(a_2), x = f^{-1}(y), y = f(x_1) \\
-    a_2 &= I_A(x_2) \\
-        &= f^{-1} \circ f (x_2) \\
-        &= 
+    a_2 &= I_A(a_2) \\
+        &= f^{-1} \circ f (a_2) \\
+        &= f^{-1}(b) \\
+        &= a
    \end{align}
+   
+   \begin{align}
+   a_1 &= I_A(a_1) \\
+        &= f^{-1} \circ f (a_1) \\
+        &= f^{-1}(b) \\
+        &= a
+   \end{align}
+   
+   Therefore $a_1$ = $a_2$
   \end{sol}
   
   \section*{Relations}
