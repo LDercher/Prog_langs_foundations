@@ -1,0 +1,133 @@
+\documentclass[10pt]{article}
+
+  \usepackage{amsmath,amssymb,amsthm}
+  
+  \pdfpagewidth   8.5in
+  \pdfpageheight    11in
+  \setlength\paperheight {11in}
+  \setlength\paperwidth  {8.5in}
+  
+  %Adjust the margins
+  \topmargin        -0.5in
+  \oddsidemargin      0in
+  \evensidemargin     0in
+  \textheight       9.0in
+  \textwidth        6.5in
+  
+  \newcommand{\squash}{\itemsep=0pt\parskip=0pt}
+  \newcommand{\squish}{\topsep=0pt\partopsep=0pt}
+  \newcommand{\sample}[1]{\begin{center}\framebox{\parbox{0.8\textwidth}{\texttt{#1}}}\end{center}}
+  \newcommand{\tr}{\ensuremath{\rightsquigarrow}}
+  
+  
+  \theoremstyle{definition}
+  \newtheorem{defn}{Definition}
+  \newtheorem{prob}{Problem}
+  \newtheorem{sol}{Solution}
+  
+  \begin{document}
+  
+  \noindent
+  \textbf{Homework 1: Functions, Relations, and $FO(\mathbb Z)$} \hfill \emph{Due: September 4, 2018, 9:00 AM}
+  \hrule
+  
+  \vspace{.3in}
+  
+  \section*{Functions}
+  
+  \begin{defn}
+    A function $f : A \to B$ is:
+    \begin{enumerate}
+    \item \emph{Injective} if whenever $f(x) = f(y)$, then $x = y$;
+    \item \emph{Surjective} if for every $y$ there is some $x$ such that $f(x) = y$;
+    \item \emph{Bijective} if it is both injective and surjective; and,
+    \item \emph{Invertable} if there is some function $g : B \to A$ such that $g \circ f = I_A$ and
+      $f \circ g = I_B$ (where $I_X$ is the identity function from $X$ to $X$).
+    \end{enumerate}
+  \end{defn}
+  
+  \begin{prob}
+    Restate Definitions 1.1, 1.2, and 1.4 using the syntax of $FO(\mathbb Z)$.
+  \end{prob}
+  
+  \begin{sol}
+    \begin{equation}
+        \forall xy.f(x) = f(y) \Rightarrow x = y
+    \end{equation}
+      \begin{equation}   
+      \forall y. \exists x. f(x) = y
+      \end{equation}
+      \begin{equation}
+        \forall xy. f(x) = y \Leftrightarrow g(y) = x
+      \end{equation}
+  \end{sol}
+  
+  \begin{prob}
+    Suppose that $f$ has two inverses $g$ and $h$.  (That is, each of $g$ and $h$ meet the conditions
+    in Definition 1.4.)  Show that $g = h$.
+  \end{prob}
+  
+  \begin{sol}
+      \begin{align}
+      h \circ f \circ g &= h \circ f \circ g \\
+    I_B \circ g &= h \circ I_B \\
+      g &= h 
+      \end{align}
+  \end{sol}
+  
+  \begin{prob}[$\star$]
+    Show that if $f$ has an inverse, then $f$ is bijective.
+  \end{prob}
+  
+  \begin{sol}
+   proof: if f has an inverse, then it is surjective
+   \begin{align}
+   Let:  f: A \rightarrow B, f^{-1}: B \rightarrow A, a \in A, b \in B \\
+   f^{-1}(b) &= a \\
+   f(a) &= f(f^{-1}(b)) \\
+       &= f \circ f^{-1} (b) \\
+        &= I_B \circ b \\
+        &= b   
+   \end{align}
+   proof: if f has an inverse, then it is injective
+   \begin{align}
+    Let: a_1, a_2 \in A, f(a_1) = f(a_2), x = f^{-1}(y), y = f(x_1) \\
+    a_2 &= I_A(x_2) \\
+        &= f^{-1} \circ f (x_2) \\
+        &= 
+   \end{align}
+  \end{sol}
+  
+  \section*{Relations}
+  \newcommand\R{\mathrel{R}}
+  
+  
+  \begin{defn}
+    A relation $R$ is:
+    \begin{enumerate}
+    \item \emph{Reflexive} if for every $x$, $x \R x$;
+    \item \emph{Symmetric} if whenever $x \R y$, then $y \R x$;
+    \item \emph{Transitive} if whenever $x \R y$ and $y \R z$, then $x \R z$.
+    \end{enumerate}
+    A relation that is reflexive, symmetric, and transitive is called an \emph{equivalence} relation.
+  \end{defn}
+  
+  \begin{prob}
+    Show (or give a counterexample) that if $R$ and $S$ are equivalence relations, then so is $R \cap
+    S$.
+  \end{prob}
+  
+  
+  \begin{prob}
+    Show (or give a counterexample) that if $R$ and $S$ are equivalence relations, then so is
+    $R \cup S$.
+  \end{prob}
+  
+  
+  \section*{$FO(\mathbb Z)$}
+  
+  Section 1.13.1 exercises 1--3.
+  
+  
+  \end{document}
+  
