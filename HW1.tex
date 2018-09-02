@@ -42,6 +42,7 @@
   \hrule
   
   \vspace{.3in}
+  \section*{author}{Luke Dercher}
   
   \section*{Functions}
   
@@ -170,18 +171,23 @@
 	  \begin{equation}
 	  3
 	  \end{equation}
+	  
 	  \begin{equation}
 	  1 - 2
 	  \end{equation}
+	  
 	  \begin{equation}
 	  *
 	  \end{equation}
+	  
 	  \begin{equation}
 	  \wedge
 	  \end{equation}
+	  
 	  \begin{equation}
 	  x + y \Rightarrow z
 	  \end{equation}
+	  
 	  \begin{equation}
 	  x + y = z \Rightarrow False 
 	  \end{equation}
@@ -217,8 +223,51 @@
   \end{ts}
   
   \begin{bp}
+  
+  \begin{equation}
+  P \wedge Q \Rightarrow R \Leftrightarrow P \vee R
+  \end{equation}
+  
+  \begin{equation}
+  x + y > z \Rightarrow \exists w.x > w \wedge
+  w > y
+  \end{equation}
+  
+  \begin{equation}
+  \forall x. (\forall y.y  >  x)  \Rightarrow  x  <  0 \wedge  x  >  0
+  \end{equation}
+  
   \end{bp}
   
+  \begin{ts}
+   
+  \begin{equation}
+  ((P \wedge Q) \Rightarrow R) \Leftrightarrow (P \vee R)
+  \end{equation}
+  
+  \begin{equation}
+  (x + y > z) \Rightarrow (\exists w.((x > w) \wedge
+  (w > y)))
+  \end{equation}
+  
+  \begin{equation}
+  \forall x. (\forall y.(y  >  x)) \Rightarrow  ((x  <  0) \wedge  (x  >  0))
+  \end{equation}
+  
+  
+  
+  
+  \end{ts}
+  
+  \begin{bp}
+  Which of the following forulas accurately translates the (invalid) statement "if x plus y is greater than 0 then x is greater than 0"
+  \end{bp}
+  
+  \begin{ts}
+  \begin{equation}
+  x + y > 0 \Rightarrow x > 0
+  \end{equation}
+  \end{ts}
   
   
   \end{document}
