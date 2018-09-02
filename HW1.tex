@@ -2,6 +2,19 @@
 
   \usepackage{amsmath,amssymb,amsthm}
   
+  \usepackage{chngcntr}
+  
+  \theoremstyle{definition}
+  \newtheorem{defn}{Definition}
+  \newtheorem{prob}{Problem}
+  \newtheorem{sol}{Solution}
+  \newtheorem{bp}{Textbook Problem}
+  \newtheorem{ts}{Texbook Solution}
+
+	\counterwithin*{equation}{sol}
+	\counterwithin*{equation}{ts}
+	\counterwithin*{equation}{bp}
+  
   \pdfpagewidth   8.5in
   \pdfpageheight    11in
   \setlength\paperheight {11in}
@@ -20,10 +33,7 @@
   \newcommand{\tr}{\ensuremath{\rightsquigarrow}}
   
   
-  \theoremstyle{definition}
-  \newtheorem{defn}{Definition}
-  \newtheorem{prob}{Problem}
-  \newtheorem{sol}{Solution}
+  
   
   \begin{document}
   
@@ -49,7 +59,6 @@
   \begin{prob}
     Restate Definitions 1.1, 1.2, and 1.4 using the syntax of $FO(\mathbb Z)$.
   \end{prob}
-  
   \begin{sol}
     \begin{equation}
         \forall xy.f(x) = f(y) \Rightarrow x = y
@@ -66,7 +75,6 @@
     Suppose that $f$ has two inverses $g$ and $h$.  (That is, each of $g$ and $h$ meet the conditions
     in Definition 1.4.)  Show that $g = h$.
   \end{prob}
-  
   \begin{sol}
       \begin{align}
       h \circ f \circ g &= h \circ f \circ g \\
@@ -155,6 +163,61 @@
   
   Section 1.13.1 exercises 1--3.
   
+  
+  \begin{bp}
+  
+	  For each of the following expressions, sate the syntactic catergory to which the expression belongs, or state the expression does not belong to any of the syntatctic categories defined in the sections listed above:
+	  \begin{equation}
+	  3
+	  \end{equation}
+	  \begin{equation}
+	  1 - 2
+	  \end{equation}
+	  \begin{equation}
+	  *
+	  \end{equation}
+	  \begin{equation}
+	  \wedge
+	  \end{equation}
+	  \begin{equation}
+	  x + y \Rightarrow z
+	  \end{equation}
+	  \begin{equation}
+	  x + y = z \Rightarrow False 
+	  \end{equation}
+	 
+\indent \indent \indent \indent \indent \indent   P x 1, assuming the P is a user-specified binary predicate symbol.       \indent \indent \indent \indent \indent    (7)   
+  		
+  \end{bp}
+  
+  \begin{ts}:
+  \\
+  \\
+  (1) numerals n
+  \\
+  \\
+  (2) terms t
+  \\
+  \\
+  (3) operators op
+  \\
+  \\
+  (4) connectives conn
+  \\
+  \\
+  (5) formulas F
+  \\
+  \\
+  (6) formulas F
+  \\
+  \\
+  (7) not defined
+  \\
+  \\
+  \end{ts}
+  
+  \begin{bp}
+  \end{bp}
   
   
   
