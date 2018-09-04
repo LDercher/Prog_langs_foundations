@@ -1,0 +1,65 @@
+\documentclass[10pt]{article}
+
+\usepackage{amsmath,amssymb,amsthm,enumitem}
+
+\pdfpagewidth   8.5in
+\pdfpageheight    11in
+\setlength\paperheight {11in}
+\setlength\paperwidth  {8.5in}
+
+%Adjust the margins
+\topmargin        -0.5in
+\oddsidemargin      0in
+\evensidemargin     0in
+\textheight       9.0in
+\textwidth        6.5in
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+\newcommand{\squash}{\itemsep=0pt\parskip=0pt}
+\newcommand{\squish}{\topsep=0pt\partopsep=0pt}
+\newcommand{\sample}[1]{\begin{center}\framebox{\parbox{0.8\textwidth}{\texttt{#1}}}\end{center}}
+\newcommand{\tr}{\ensuremath{\rightsquigarrow}}
+
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{prob}{Problem}
+
+\begin{document}
+
+\noindent
+\textbf{Homework 2: $FO(Z)$ and \texttt{while}} \hfill \emph{Due: September 7, 2018, 9:00 AM}
+\hrule
+
+\vspace{.3in}
+
+\section*{$FO(\mathbb Z)$}
+
+Section 1.14.1 exercise 1-2.
+
+Section 1.14.2 exercise 1.
+
+Section 1.14.3 exercise 2.
+
+Section 1.14.4 exercise 2 ($\star$)
+
+\begin{prob}
+  Using the following definitions of addition and multiplication:
+  \begin{align*}
+    0 + y &= y & 0 \times y &= 0 \\
+    Sx + y &= S(x + y) & Sx \times y &= y + x \times y
+  \end{align*}
+  Show the following:
+  \begin{enumerate}[label=(\alph*)]
+  \item $\forall x y z. x \times z + y \times z = (x + y) \times z$
+  \item $\forall x y z. x \times (y \times z) = (x \times y) \times z$
+  \end{enumerate}
+\end{prob}
+
+\section*{The \texttt{while} language}
+
+Section 2.10.1 exercises 2-5.
+
+\end{document}
