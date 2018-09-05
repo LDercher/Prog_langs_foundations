@@ -1,6 +1,8 @@
 \documentclass[10pt]{article}
 
 \usepackage{amsmath,amssymb,amsthm,enumitem}
+\usepackage{ stmaryrd,tipa }
+
 
 \pdfpagewidth   8.5in
 \pdfpageheight    11in
@@ -46,13 +48,64 @@ Section 1.14.1 exercise 1-2.
  \begin{equation}
  	\forall x. \forall y. \exists w. ( x \mid w) \wedge (y \mid w)
  \end{equation}
+ 
+ \begin{equation}
+ 	\forall x. \forall y. \exists z. x \mid z \wedge y \mid z \wedge \forall w. x \mid w \wedge y \mid w \Rightarrow z \leq w
+ \end{equation}
 \end{ts}
 
 Section 1.14.2 exercise 1.
 
+\begin{ts}
+
+\begin{align*}
+	\llbracket \phi \wedge \phi \rrbracket \sigma &=  \llbracket \phi \rrbracket \sigma \\ \llbracket \phi \rrbracket \sigma \wedge \llbracket \phi \rrbracket \sigma &=  \llbracket \phi \rrbracket \sigma \\
+\end{align*}
+ Take \textphi to equal True or False. True \textturnv  True = True. False \textturnv  False = False
+ 
+ \begin{align*}
+	\llbracket \phi + 0 \rrbracket \sigma &=  \llbracket \phi \rrbracket \sigma \\ \llbracket \phi \rrbracket \sigma + 0 &=  \llbracket \phi \rrbracket \sigma \\
+\end{align*}
+Take \textphi to equal any integer x, add x + 0 = 0 by the meaning of adding nothing to something. In this case x. 
+
+\end{ts}
+
 Section 1.14.3 exercise 2.
 
+\begin{ts}
+
+\begin{align*}
+\forall w \forall x. \forall y \forall z. w > x \wedge y > z &\Rightarrow w + y > x + z \\ \forall w \forall x. \forall y \forall z. w > x \wedge y > z &\Rightarrow w + y > x + z
+\end{align*}
+
+We can say x + z \textless x + y by left and right monotonicity of addition
+We can say x + z \textless x + y \textless w + y by transitive property of \textless
+\end{ts}
+
 Section 1.14.4 exercise 2 ($\star$)
+\begin{ts}
+Use the following properties of addition to prove the following theoroms.
+	\begin{enumerate}
+	\item 0 + y = y  
+	\item S(x)  = S(x + y) 
+	\end{enumerate}
+	
+	\begin{equation}
+	\forall x. x + 0 = x
+	\end{equation}
+	By property 1 of addition, any number y + 0 = y
+	
+	\begin{equation}
+	\forall x. \forall y. x + S(y) = S(x+y)
+	\end{equation}
+	Take x to be any integer and take S(y) to be any function on y in FO(z), By proprty 2 of addition we can see that any function plus an integer is the function plus the integer
+	
+	\begin{equation}
+	\forall x. \forall y. x + y = y + x
+	\end{equation}
+\end{ts}
+
+
 
 \begin{prob}
   Using the following definitions of addition and multiplication:
@@ -65,6 +118,7 @@ Section 1.14.4 exercise 2 ($\star$)
   \item $\forall x y z. x \times z + y \times z = (x + y) \times z$
   \item $\forall x y z. x \times (y \times z) = (x \times y) \times z$
   \end{enumerate}
+
 \end{prob}
 
 \section*{The \texttt{while} language}
