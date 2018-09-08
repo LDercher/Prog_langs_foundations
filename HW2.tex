@@ -1,9 +1,18 @@
 \documentclass[10pt]{article}
-
+\usepackage{chngcntr}
 \usepackage{amsmath,amssymb,amsthm,enumitem}
 \usepackage{ stmaryrd,tipa }
 
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{prob}{Problem}
+\newtheorem{sol}{Solution}
+\newtheorem{bp}{Textbook Problem}
+\newtheorem{ts}{Textbook Solution}
 
+\counterwithin*{equation}{sol}
+\counterwithin*{equation}{ts}
+\counterwithin*{equation}{bp}
 \pdfpagewidth   8.5in
 \pdfpageheight    11in
 \setlength\paperheight {11in}
@@ -25,16 +34,13 @@
 \newcommand{\tr}{\ensuremath{\rightsquigarrow}}
 
 
-\theoremstyle{definition}
-\newtheorem{defn}{Definition}
-\newtheorem{prob}{Problem}
-\newtheorem{ts}{Textbook Solution}
+
 
 
 \begin{document}
 
 \noindent
-\textbf{Homework 2: $FO(Z)$ and \texttt{while}} \hfill \emph{Due: September 7, 2018, 9:00 AM}
+\textbf{Homework 2: $FO(Z)$ and \texttt{while}} \hfill \emph{Author: Luke Dercher}
 \hrule
 
 \vspace{.3in}
@@ -56,7 +62,7 @@ Section 1.14.1 exercise 1-2.
 
 Section 1.14.2 exercise 1.
 
-\begin{ts}
+\begin{sol}
 
 \begin{align*}
 	\llbracket \phi \wedge \phi \rrbracket \sigma &=  \llbracket \phi \rrbracket \sigma \\ \llbracket \phi \rrbracket \sigma \wedge \llbracket \phi \rrbracket \sigma &=  \llbracket \phi \rrbracket \sigma \\
@@ -68,11 +74,11 @@ Section 1.14.2 exercise 1.
 \end{align*}
 Take \textphi to equal any integer x, add x + 0 = 0 by the meaning of adding nothing to something. In this case x. 
 
-\end{ts}
+\end{sol}
 
 Section 1.14.3 exercise 2.
 
-\begin{ts}
+\begin{sol}
 
 \begin{align*}
 \forall w \forall x. \forall y \forall z. w > x \wedge y > z &\Rightarrow w + y > x + z \\ \forall w \forall x. \forall y \forall z. w > x \wedge y > z &\Rightarrow w + y > x + z
@@ -80,10 +86,10 @@ Section 1.14.3 exercise 2.
 
 We can say x + z \textless x + y by left and right monotonicity of addition
 We can say x + z \textless x + y \textless w + y by transitive property of \textless
-\end{ts}
+\end{sol}
 
 Section 1.14.4 exercise 2 ($\star$)
-\begin{ts}
+\begin{sol}
 Use the following properties of addition to prove the following theoroms.
 	\begin{enumerate}
 	\item 0 + y = y  
@@ -103,7 +109,7 @@ Use the following properties of addition to prove the following theoroms.
 	\begin{equation}
 	\forall x. \forall y. x + y = y + x
 	\end{equation}
-\end{ts}
+\end{sol}
 
 
 
@@ -121,8 +127,138 @@ Use the following properties of addition to prove the following theoroms.
 
 \end{prob}
 
+\begin{sol}
+
+case x = S(a) 
+ 
+\begin{align*}
+(IH) a*z + y * z &= (a + y) * z \\
+(def *) (z + a*z) + y* z &= (Sa + y) * z \\
+(assoc) z + (a*z + y*z) &= (Sa + y) * z \\
+(IH) z + ((a+y)*z) &= (Sa = y) * z \\
+(def *) S(a+y) * z &= (Sa + y) * z \\
+(def +) (Sa+y) * z &= (Sa + y) * z \\
+(Sa + y) * z &= (Sa + y) * z
+\end{align*}
+
+case y = S(a) 
+ 
+\begin{align*}
+(IH) x*z + a * z &= (x + a) * z \\
+(def *) (z + a*z) + x* z &= (Sa + x) * z \\
+(assoc) z + (a*z + x*z) &= (Sa + x) * z \\
+(IH) z + ((a+x)*z) &= (Sa + x) * z \\
+(def *) S(a+x) * z &= (Sa + x) * z \\
+(def +) (Sa+x) * z &= (Sa + x) * z \\
+(Sa + x) * z &= (Sa + x) * z
+\end{align*}
+	
+\end{sol}
+
+
+\begin{sol}
+
+case x = S(a) 
+ 
+\begin{align*}
+(IH) a*z + y * z &= (a + y) * z \\
+(def *) (z + a*z) + y* z &= (Sa + y) * z \\
+(assoc) z + (a*z + y*z) &= (Sa + y) * z \\
+(IH) z + ((a+y)*z) &= (Sa = y) * z \\
+(def *) S(a+y) * z &= (Sa + y) * z \\
+(def +) (Sa+y) * z &= (Sa + y) * z \\
+(Sa + y) * z &= (Sa + y) * z
+\end{align*}
+
+case y = S(a) 
+ 
+\begin{align*}
+(IH) x*z + a * z &= (x + a) * z \\
+(def *) (z + a*z) + x* z &= (Sa + x) * z \\
+(assoc) z + (a*z + x*z) &= (Sa + x) * z \\
+(IH) z + ((a+x)*z) &= (Sa + x) * z \\
+(def *) S(a+x) * z &= (Sa + x) * z \\
+(def +) (Sa+x) * z &= (Sa + x) * z \\
+(Sa + x) * z &= (Sa + x) * z
+\end{align*}
+	
+\end{sol}
+
+\begin{sol}
+
+case x = S(a)
+
+\begin{align*}
+(IH) a * (y * z) &= ((a * y) * z \\
+prove  Sa * (y * z) &= (Sa * y) * z \\
+(def *) (y*z) + a (y*z) &= (Sa * y) * z \\
+(assoc) z(y + ay) &= (Sa * y) * z\\
+(def *)  z * (Sa * y) &= (Sa * y) * z \\
+(Sa * y) * z &= (Sa * y) * z
+\end{align*}
+
+\end{sol}
+
 \section*{The \texttt{while} language}
 
 Section 2.10.1 exercises 2-5.
+
+
+\begin{bp}
+2.10.1.1: Write a while command that sets $z$ to max of $x$ and $y$
+\end{bp}
+
+
+\begin{ts}
+if x - y $>$ 0 then x else if x = y then -1 else y
+\end{ts}
+
+
+\begin{bp}
+2.10.1.2: Write a while command that sets $z$ to $x^y$ (assume $y$ is non-neg)
+\end{bp}
+
+
+\begin{ts}
+while y > 0;
+	z := x * z;
+	y := y - 1;
+\end{ts}
+
+
+\begin{bp}
+2.10.1.3: What is the meaning of $x$ := $y$; ; $y$:= $z$; $z$:= $x$ in in state { x maps to 0, y maps to 2, z maps to 1}
+\end{bp}
+
+
+\begin{ts}
+This means
+x := 2;
+y := 1;
+z := 0
+\end{ts}
+
+
+\begin{bp}
+2.10.1.4: What is the meaning of if x $>$ 0 then z := y - x else z := y + x in state {x maps to 3, y maps to 2, z maps to 1}?
+\end{bp}
+
+
+\begin{ts}
+since x maps to 3, it is greater than 0. Therefor z is set to the value of y - x (2- (-3)) = -5
+\end{ts}
+
+
+\begin{bp}
+Write down the meaning of x := y; y := x in some arbitrary state $ \sigma $
+\end{bp}
+
+
+\begin{ts}
+\begin{equation}
+\sigma \mapsto \sigma [ x \mapsto y]
+\end{equation}
+\end{ts}
+
 
 \end{document}
