@@ -1,135 +1,155 @@
 \documentclass[10pt]{article}
 
 
-    \usepackage{ dsfont }
-    \usepackage{amsmath,amssymb,amsthm}
-    
-    
-    
-    \pdfpagewidth   8.5in
-    
-    \pdfpageheight    11in
-    
-    \setlength\paperheight {11in}
-    
-    \setlength\paperwidth  {8.5in}
-    
-    
-    
-    %Adjust the margins
-    
-    \topmargin        -0.5in
-    
-    \oddsidemargin      0in
-    
-    \evensidemargin     0in
-    
-    \textheight       9.0in
-    
-    \textwidth        6.5in
-    
-    
-    
-    \setlength{\parindent}{0pt}
-    
-    \setlength{\parskip}{5pt}
-    
-    
-    
-    \newcommand{\squash}{\itemsep=0pt\parskip=0pt}
-    
-    \newcommand{\squish}{\topsep=0pt\partopsep=0pt}
-    
-    \newcommand{\sample}[1]{\begin{center}\framebox{\parbox{0.8\textwidth}{\texttt{#1}}}\end{center}}
-    
-    \newcommand{\tr}{\ensuremath{\rightsquigarrow}}
-    
-    
-    
-    
-    
-    \theoremstyle{definition}
-    
-    \newtheorem{defn}{Definition}
-    
-    \newtheorem{prob}{Problem}
-    
-    \newtheorem{bp}{Textbook Problem}
-    \newtheorem{ts}{Textbook Solution}
-    
-    
-    
-    \begin{document}
-    
-    
-    
-    \noindent
-    
-    \textbf{Homework 3: Domains and Denotations} \hfill \emph{Due: September 24, 2018, 9:00 AM}
-    
-    \hrule
-    
-    
-    
-    \vspace{.3in}
-    
-    
-    
-    Section 2.10.3 exercises 1--2.
-    
-    
-    
-    \begin{bp}
-    Determine if the following equations are monotonic and continuous
-    \begin{equation}
-    f(n) = \{ 0 \textrm{ if } n \in \mathds{N} \textrm{ is even, } 1 \textrm{ if } n \in \mathds{N} \textrm{ is odd, } \omega \textrm{ if } n = \omega
-    \end{equation}
-    
-    \begin{equation}
-    f(n) = \{ 2*n \textrm{ if } n \in \mathds{N} \textrm{ , } \omega \textrm{ if } n = \omega 
-    \end{equation}
-    
-    \end{bp}
-    
-    \begin{ts}
-    
-    1. This function is not monotonic nor is it continuous. Why? ex. $f(4) = 0$, $f(3) = 1$. In this case we have $x < y$ but not $f(x) < f(y)$. The function is not continuous since it can only output 0, 1, or $\omega$.
-    
-    2.This function is monotonic. If we have an $x < y$, $2*x < 2*y$, therefore $f(x) < f(y)$. This function is also continuous. This is because for all n, f(n) has a value, and no skips or jumps take place in the function at any time.  
-    \end{ts}
-    
-    
-    
-    Section 2.10.4 exercise 1.
-    
-    \begin{bp}
-    
-    consider while command while $ x \neq y $ do $x = x + 1 $. Write out first three approximations.
-    \end{bp}
-    
-    \begin{ts}
-    \begin{center}
-     \begin{tabular}{||c c c c||} 
-     \hline
-       & $F^0( \bot )$ & $F^0( \bot )$ & $F^0( \bot )$ \\ [0.5ex] 
-     \hline\hline
-     ${x\mapsto \bot}$ & $\bot$ & $\bot$ & $\bot$ \\ 
-     \hline
-     ${x\mapsto \bot + 1 }$ & $\bot$ & $\bot$ & $\bot$ \\
-     \hline
-     ${x\mapsto \bot + 1 + 1}$ & $\bot$ & $\bot$ & $\bot$ \\
-     \hline
-    \end{tabular}
-    \end{center}
-    
-    \end{ts}
-    
-    
-    
-    Section 2.11.3 exercises 1 and 2 ($\star$)
-    
-    
-    
-    \end{document}
-    
-    
+  \usepackage{ dsfont }
+  \usepackage{amsmath,amssymb,amsthm}
+  
+  
+  
+  \pdfpagewidth   8.5in
+  
+  \pdfpageheight    11in
+  
+  \setlength\paperheight {11in}
+  
+  \setlength\paperwidth  {8.5in}
+  
+  
+  
+  %Adjust the margins
+  
+  \topmargin        -0.5in
+  
+  \oddsidemargin      0in
+  
+  \evensidemargin     0in
+  
+  \textheight       9.0in
+  
+  \textwidth        6.5in
+  
+  
+  
+  \setlength{\parindent}{0pt}
+  
+  \setlength{\parskip}{5pt}
+  
+  
+  
+  \newcommand{\squash}{\itemsep=0pt\parskip=0pt}
+  
+  \newcommand{\squish}{\topsep=0pt\partopsep=0pt}
+  
+  \newcommand{\sample}[1]{\begin{center}\framebox{\parbox{0.8\textwidth}{\texttt{#1}}}\end{center}}
+  
+  \newcommand{\tr}{\ensuremath{\rightsquigarrow}}
+  
+  
+  
+  
+  
+  \theoremstyle{definition}
+  
+  \newtheorem{defn}{Definition}
+  
+  \newtheorem{prob}{Problem}
+  
+  \newtheorem{bp}{Textbook Problem}
+  \newtheorem{ts}{Textbook Solution}
+  
+  
+  
+  \begin{document}
+  
+  
+  
+  \noindent
+  
+  \textbf{Homework 3: Domains and Denotations} \hfill \emph{Due: September 24, 2018, 9:00 AM}
+  
+  \hrule
+  
+  
+  
+  \vspace{.3in}
+  
+  
+  
+  Section 2.10.3 exercises 1--2.
+  
+  
+  
+  \begin{bp}
+  Determine if the following equations are monotonic and continuous
+  \begin{equation}
+  f(n) = \{ 0 \textrm{ if } n \in \mathds{N} \textrm{ is even, } 1 \textrm{ if } n \in \mathds{N} \textrm{ is odd, } \omega \textrm{ if } n = \omega
+  \end{equation}
+  
+  \begin{equation}
+  f(n) = \{ 2*n \textrm{ if } n \in \mathds{N} \textrm{ , } \omega \textrm{ if } n = \omega 
+  \end{equation}
+  
+  \end{bp}
+  
+  \begin{ts}
+  
+  1. This function is not monotonic nor is it continuous. Why? ex. $f(4) = 0$, $f(3) = 1$. In this case we have $x < y$ but not $f(x) < f(y)$. The function is not continuous since it can only output 0, 1, or $\omega$.
+  
+  2.This function is monotonic. If we have an $x < y$, $2*x < 2*y$, therefore $f(x) < f(y)$. This function is also continuous. This is because for all n, f(n) has a value, and no skips or jumps take place in the function at any time.  
+  \end{ts}
+  
+  
+  
+  Section 2.10.4 exercise 1.
+  
+  \begin{bp}
+  
+  consider while command while $ x \neq y $ do $x = x + 1 $. Write out first three approximations.
+  \end{bp}
+  
+  \begin{ts}
+  the first approximation is the following
+  
+  $\bot_f (\phi) = \bot$
+  
+  second:
+  
+  $F(\bot_f (\phi)) = \{ \phi$ if $\phi(x) = \phi(y)$, $\bot_f(\phi[x := x + 1]) = \bot$ otherwise
+  
+  third:
+  
+  $F(F(\bot_f (\phi))) = \{ \phi$ if $\phi(x) = \phi(y)$, $\bot_f(\phi[x := x + 1]) = \bot$ if x = y - 1, $\bot_f(\phi[x := [x + 1] + 1]) = \bot$ otherwise
+  
+  
+  
+  \end{ts}
+  
+  
+  
+  Section 2.11.3 exercises 1 and 2 ($\star$)
+  
+  \begin{ts}
+  
+  (a) elements of $ B \mapsto A$ are as follows
+  
+  (0,1),(1,0),(0,2),(2,0)(1,2),(2,1),(0,0),(1,1),(2,2)
+  
+  (b) The elements of $ B \mapsto A$ that are related by pointwise ordering are the following
+  
+  A(0,1) $\mapsto$ B(0,1), A(0,1) $\mapsto$ B(0,2), A(1,0) $\mapsto$ B(1,0), A(1,0) $\mapsto$ B(2,0)
+  
+  (c) the elements that are monotonic functions from $(B,\subseteq_B)$ to $(A,\subseteq_A)$ are the following
+  
+  $\{0 \mapsto 0, 1 \mapsto 1\}$, $\{0 \mapsto 0, 1 \mapsto 2\}$, $\{0 \mapsto 1, 1 \mapsto 1\}$, $\{0 \mapsto 1, 1 \mapsto 2\}$, $\{0 \mapsto 2, 1 \mapsto 1\}$, $\{0 \mapsto 2, 1 \mapsto 2, \}$
+  
+  (d) A monotonic function from $B \mapsto A$ to $B \mapsto A$ is the following
+  
+  
+  
+  
+  \end{ts}
+  
+  
+  \end{document}
+  
+  
