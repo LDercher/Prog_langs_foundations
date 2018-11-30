@@ -1,0 +1,133 @@
+\documentclass[10pt]{article}
+
+\usepackage{amsmath,amssymb,amsthm,mathwidth, textcomp}
+
+\pdfpagewidth   8.5in
+\pdfpageheight    11in
+\setlength\paperheight {11in}
+\setlength\paperwidth  {8.5in}
+
+%Adjust the margins
+\topmargin        -0.5in
+\oddsidemargin      0in
+\evensidemargin     0in
+\textheight       9.0in
+\textwidth        6.5in
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+\newcommand{\squash}{\itemsep=0pt\parskip=0pt}
+\newcommand{\squish}{\topsep=0pt\partopsep=0pt}
+\newcommand{\sample}[1]{\begin{center}\framebox{\parbox{0.8\textwidth}{\texttt{#1}}}\end{center}}
+\newcommand{\tr}{\ensuremath{\rightsquigarrow}}
+
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{prob}{Problem}
+\newtheorem{bp}{book problem}
+
+\begin{document}
+
+\noindent
+\textbf{Homework 6: $\lambda$-calculus} \hfill \emph{Due: December 5, 2018, 9:00 AM}
+\hrule
+
+\vspace{.3in}
+
+5.8.5, exercise 2.
+
+\begin{bp}
+  Consider the following term
+
+  ($\lambda$x.$\lambda$y.x) ($\lambda$z.z) (($\lambda$x.x)($\lambda$y.y))
+
+  (a) For this term, show both the left-to-right and right-to-left call-by-value reduction sequences which end in values, using underlining notation.
+
+  (b) Write down the contexts used for each step in those reduction sequences, and confirm that all contexts are accepted by the appropriate grammer in the chapter. 
+
+\end{bp}
+
+5.9, exercise 2.
+
+\begin{bp}
+ for the purposes of this problem define  t\textdownarrow t' to means $\exists t''.t \leadsto* t'' \wedge t' \leadsto * t'' $ where $\leadsto$ is normal-order reduction (where the outersmost $\beta$-redex is reduced, and reduction proceeds under $\lambda$-binders). As usual, variables can be safely renamed, so that we consider $\lambda x.x$ equivalent to $\lambda y.y$, for example.
+
+ For which of the following terms do we have t\textdownarrow$\lambda x.\lambda y.y$? Please indicated all the terms which satisfy this preperty.
+
+ (a) $\lambda x. \lambda y.y$ \newline
+ (b) $(\lambda x.x) \lambda y.y$ \newline
+ (c) $( \lambda x.x x)( \lambda y.y) \lambda x. \lambda y.y$ \newline
+ (d) $ \lambda x.( \lambda x. \lambda y.y y)( \lambda x.x)$
+ (e) $ \lambda x.\lambda x.(\lambda y.y)x$
+\end{bp}
+
+6.8.1, exercises 2--3.
+
+\begin{bp}
+
+  (2) Write a function $add-components$ that takes in a pair $(x,y)$ and returns the pair $x + y$
+
+  (3) Write a function $swap-pair$ that takes in a pair $(x,y)$ and returns the pair $(y,x)$
+
+\end{bp}
+
+6.8.2, exercises 2--3.
+
+\begin{bp}
+  (2)Suppose we wish to encode a data type consisting of basic colors $red$ and $blue$, with possible repeated modifier $light$. So example data elements are: $red$, $blue$, $light blue$, $light(light red)$, etc. \newline
+  give definitionsfor the three constructors, $red$, $blue$, and $light$, using the Scott encoding.
+
+  (3) Give definitions using the scott encoding for constructors $node$ and $leaf$ for a datatype of binary trees, with data stored at the nodes but not the leaves. So a tree like this, (insert picture of three with values only in internal nodes) $(node 1 leaf(node 2 leaf leaf))$
+\end{bp}
+
+6.9.2, exercise 1.
+
+\begin{bp}
+ One way to write a function $eqnaut$ to test whether two Peano numbers are equal is to remove a successor from each of them, until either both numbers are zero, in which case we return $true$; or else one is zero, and the other is not, in which we return $false$.
+ (a) Based on this idea, define $eqnuat$ using recursive equations.
+ (b) Translte your encoding into a lamda term using the Scott encoding. 
+\end{bp}
+
+\begin{prob}
+  Given the $\lambda$-encoding of lists by:
+  \[
+    nil = \lambda f. \lambda z. z \qquad cons = \lambda x. \lambda xs. \lambda f. \lambda z. f\,x\,(xs\,f\,z)
+  \]
+  Show encodings of the $head$ and $tail$ functions satisfying the following equations
+  \[
+    head\,(cons\,x\,xs) = x \qquad tail\,(cons\,x\,xs) = xs
+  \]
+  It may help you to recall the approach used to encode the predecessor function.
+\end{prob}
+
+\begin{prob}
+  Given the $\lambda$-encoding of the natural numbers by:
+  \[
+    zero = \lambda f. \lambda x. x \qquad succ = \lambda n. \lambda f. \lambda x. f \, (n\,f\,x)
+  \]
+  We have the following two definitions of addition:
+  \[
+    add = \lambda m.\lambda n.\lambda f.\lambda x.m\,succ\,n\,f\,x \qquad add' = \lambda m.\lambda n.\lambda f.\lambda x. m\,f\,(n\,f\,x)
+  \]
+  Show (by natural number induction) that, for all encodings of natural numbers $m$ and $n$, we have $add\,m\,n = add'\,m\,n$.
+\end{prob}
+
+\begin{prob}
+  $(\star)$ A \emph{snoc-list} is a cons-list in reverse: the sequence $1, 2, 3$ is represented
+  \[
+    cons\,1\,(cons\,2\,(cons\,3\,nil))
+  \]
+  as a cons-list, and
+  \[
+    snoc\,(snoc\,(snoc\,lin\,1)\,2)\,3
+  \]
+  as a snoc-list.  Give a $\lambda$-encoding of snoc-lists; that is, give $\lambda$ definitions for $lin$, $snoc$, and $foldl$ such that
+  \[
+    foldl\,f\,z\,(snoc\,(\dots(snoc\,lin\,x_1)\dots)\,x_n) = f\,(\dots(f\,z\,x_1)\dots)\,x_n
+  \]
+\end{prob}
+
+
+\end{document}
