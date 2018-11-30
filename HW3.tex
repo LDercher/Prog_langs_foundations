@@ -1,155 +1,354 @@
 \documentclass[10pt]{article}
 
 
+
+
+
   \usepackage{ dsfont }
+
   \usepackage{amsmath,amssymb,amsthm}
+
   
+
   
+
   
+
   \pdfpagewidth   8.5in
+
   
+
   \pdfpageheight    11in
+
   
+
   \setlength\paperheight {11in}
+
   
+
   \setlength\paperwidth  {8.5in}
+
   
+
   
+
   
+
   %Adjust the margins
+
   
+
   \topmargin        -0.5in
+
   
+
   \oddsidemargin      0in
+
   
+
   \evensidemargin     0in
+
   
+
   \textheight       9.0in
+
   
+
   \textwidth        6.5in
+
   
+
   
+
   
+
   \setlength{\parindent}{0pt}
+
   
+
   \setlength{\parskip}{5pt}
+
   
+
   
+
   
+
   \newcommand{\squash}{\itemsep=0pt\parskip=0pt}
+
   
+
   \newcommand{\squish}{\topsep=0pt\partopsep=0pt}
+
   
+
   \newcommand{\sample}[1]{\begin{center}\framebox{\parbox{0.8\textwidth}{\texttt{#1}}}\end{center}}
+
   
+
   \newcommand{\tr}{\ensuremath{\rightsquigarrow}}
+
   
+
   
+
   
+
   
+
   
+
   \theoremstyle{definition}
+
   
+
   \newtheorem{defn}{Definition}
+
   
+
   \newtheorem{prob}{Problem}
+
   
+
   \newtheorem{bp}{Textbook Problem}
+
   \newtheorem{ts}{Textbook Solution}
+
   
+
   
+
   
+
   \begin{document}
+
   
+
   
+
   
+
   \noindent
+
   
-  \textbf{Homework 3: Domains and Denotations} \hfill \emph{Due: September 24, 2018, 9:00 AM}
+
+  \textbf{Homework 3: Domains and Denotations} \hfill \emph{author: Luke Dercher}
+
   
+
   \hrule
+
   
+
   
+
   
+
   \vspace{.3in}
+
   
+
   
+
   
+
   Section 2.10.3 exercises 1--2.
+
   
+
   
+
   
+
   \begin{bp}
-  Determine if the following equations are monotonic and continuous
+
+  Determine if the following equations are monotonic and continuous in the following domain $(\mathds{N} \cup {\omega}, \leq_\omega)$
+
   \begin{equation}
   f(n) = \{ 0 \textrm{ if } n \in \mathds{N} \textrm{ is even, } 1 \textrm{ if } n \in \mathds{N} \textrm{ is odd, } \omega \textrm{ if } n = \omega
   \end{equation}
+
   
+
   \begin{equation}
   f(n) = \{ 2*n \textrm{ if } n \in \mathds{N} \textrm{ , } \omega \textrm{ if } n = \omega 
   \end{equation}
+
+\begin{equation}
+    f(n) = \omega
+\end{equation}
+  
+
+  \end{bp}
+
+  
+
+  \begin{ts}
+
+  
+
+  1. This function is not monotonic nor is it continuous. Why? ex. $f(4) = 0$, $f(3) = 1$. In this case we have $x \leq y$ but not $f(x) \leq f(y)$. The function is not continuous since it can only output 0, 1, or $\omega$.
+
+  
+
+  2.This function is monotonic. If we have an $x \leq y$, $2*x \leq 2*y$, therefore $f(x) \leq f(y)$. This function is also continuous. This is because for all n, f(n) has a value, and no skips or jumps take place in the function at any time.  
+
+  3. This function is monotonic since the input is always mapped to the bottom element. We can observe for any or $x \leq y$, $f(x) \leq f(y)$ since $\omega \leq \omega$ is true. This function is also continuous since it is just a straight line. 
+  \end{ts}
+
+  
+\begin{bp}
+    Determine if the following equations are monotonic and continuous in the following domain $(\mathds{N},|, 1)$
+    
+    \begin{equation}
+        f(n) = n + 1
+    \end{equation}
+    
+    \begin{equation}
+    f(n) = \{ n/2 \textrm{ if n is even, } n*2 \textrm{ if n is odd}
+    \end{equation}
+    
+    \begin{equation}
+        f(n) = \{ 0 \textrm{ if n is even, } 1 \textrm{ if n is odd}
+    \end{equation}
+  
+\end{bp}
+  
+\begin{ts}
+1. This function is monotonic since we can take any $x \leq y$ and $x + 1 \leq y + 1$ still holds true. This function is not continuous across it's domain of integers related by the divides relation. Take example n = 1, f(n = 1) = 2. We cannot find a value fro n such that f(n) = 1, therefore this function is not continuous over the divides relation of integers domain. 
+
+2. This function is non-monotonic over the domain. Consider counterexample to proof that it is monotonic x = 3 and y = 6. f(x) = 6 and f(y) = 3. Therefore $f(x) \not \leq f(y)$ and hence this function is non-monotonic over the domain. This function is also continuous over the domain. Again by example take n = n/2 if even and n = n+1 / 2 if odd. f(n = even) = n / 4 and f(n = odd) = n + 1. Since both of these functions are continuous we can say for every n there is a corresponding f(n) that outputs that n. 
+
+3. This function is non-monotonic. Take example y = 5 if even and x = 4 if odd. f(y = 5) = 0 and f(x = 4) = 1. Here we have a case of $x \leq y$ but not $f(x) \leq f(y)$. This function is also non-continuous. Observe that it can only map to 0 and 1 which doesn't span across our domain of integeres related by divides. 
+\end{ts}
+
+  
+
+  Section 2.10.4 exercise 1.
+
+  
+
+  \begin{bp}
+
+  
+
+  consider while command while $ x \neq y $ do $x = x + 1 $. Write out first three approximations.
+
+  \end{bp}
+
+  
+
+  \begin{ts}
+
+  the first approximation is the following
+
+  
+
+  $\bot_f (\phi) = \bot$
+
+  
+
+  second:
+
+  
+
+  $F(\bot_f (\phi)) = \{ \phi$ if $\phi(x) = \phi(y)$, $\bot_f(\phi[x := x + 1]) = \bot$ otherwise
+
+  
+
+  third:
+
+  
+
+  $F(F(\bot_f (\phi))) = \{ \phi$ if $\phi(x) = \phi(y)$, $\bot_f(\phi[x := x + 1]) = \bot$ if x = y - 1, $\bot_f(\phi[x := [x + 1] + 1]) = \bot$ otherwise
+
+  
+
+  
+
+  
+
+  \end{ts}
+
+  
+
+  
+
+  
+
+  Section 2.11.3 exercises 1 and 2 ($\star$)
+
+  \begin{bp}
+
+	let $(A, \sqsubseteq_A,\bot_A)$ be s.t. \\
+	\indent $A = {0,1,2}$ \\ 
+	$\forall a \in A. 0 \sqsubseteq_A a$ \\
+	$1 \sqsubseteq_A 2$ \\
+	$\forall a \in A. a \sqsubseteq_A a$ \\
+	$\bot_A = 0$ \\ \\
+	
+	let $(B, \sqsubseteq_B,\bot_B)$ be s.t. \\
+	\indent $B = {0,1}$ \\ 
+	$\forall b \in B. 0 \sqsubseteq_B b$ \\
+	$\forall b \in B. b \sqsubseteq_B b$ \\
+	$\bot_B = 0$
   
   \end{bp}
   
+
   \begin{ts}
+
   
-  1. This function is not monotonic nor is it continuous. Why? ex. $f(4) = 0$, $f(3) = 1$. In this case we have $x < y$ but not $f(x) < f(y)$. The function is not continuous since it can only output 0, 1, or $\omega$.
+
+  (a) elements of $ B \mapsto A$ are as follows
+
   
-  2.This function is monotonic. If we have an $x < y$, $2*x < 2*y$, therefore $f(x) < f(y)$. This function is also continuous. This is because for all n, f(n) has a value, and no skips or jumps take place in the function at any time.  
+
+  (0,1),(1,0),(0,2),(2,0)(1,2),(2,1),(0,0),(1,1),(2,2)
+
+  
+
+  (b) The elements of $ B \mapsto A$ that are related by pointwise ordering are the following
+
+  
+
+  A(0,1) $\mapsto$ B(0,1), A(0,1) $\mapsto$ B(0,2), A(0,0) $\mapsto$ B(0,0), A(1,1) $\mapsto$ B(1,1),A(1,1) $\mapsto$ B(2,1),A(1,1) $\mapsto$ B(2,2). 
+  $ \forall a_1.a_2. (a_1 = 0) \wedge (a_2 \leq 1) $
+  
+
+  (c) the elements that are monotonic functions from $(B,\subseteq_B)$ to $(A,\subseteq_A)$ are the following
+    
+    $ \forall a_1.a_2. (a_1 = 0) \wedge (a_2 \leq 1) $
+    
+    the elements that are not are the ones that satisfy the following condition.
+    
+    $ \forall a_1.a_2. (a_1 > 0) \vee (a_2 \not \leq 1) $
+
+  
+
+  (d) A monotonic function from $B \mapsto A$ to $B \mapsto A$ is the following
+    function $B \mapsto A = (m,n) \mapsto (n,m)$. Function $B \mapsto A, B \mapsto A= \{(m,n) \mapsto \{(m,n) \mapsto (n,m)\} \mapsto (n,m)\}$
+  
+  (e) The least fixed point of the previously described function is (0,0) since 0 is the bottom element in both sets A and B
+
   \end{ts}
-  
-  
-  
-  Section 2.10.4 exercise 1.
   
   \begin{bp}
-  
-  consider while command while $ x \neq y $ do $x = x + 1 $. Write out first three approximations.
+      prove by induction on n that while 0 = 0 do x:= x + 1 never terminates
   \end{bp}
   
   \begin{ts}
-  the first approximation is the following
-  
-  $\bot_f (\phi) = \bot$
-  
-  second:
-  
-  $F(\bot_f (\phi)) = \{ \phi$ if $\phi(x) = \phi(y)$, $\bot_f(\phi[x := x + 1]) = \bot$ otherwise
-  
-  third:
-  
-  $F(F(\bot_f (\phi))) = \{ \phi$ if $\phi(x) = \phi(y)$, $\bot_f(\phi[x := x + 1]) = \bot$ if x = y - 1, $\bot_f(\phi[x := [x + 1] + 1]) = \bot$ otherwise
-  
-  
-  
+  base case: n = 1, since 0 = 0 we cannot terminate so $F(1)(\phi) = \bot$ \\
+  Assume for integers up to n $F(n)(\phi) = \bot$ (strong induction) \\
+  for n + 1 we still have 0 = 0 and hence $F(n+1)(\phi) = \bot$
   \end{ts}
+
   
+
   
-  
-  Section 2.11.3 exercises 1 and 2 ($\star$)
-  
-  \begin{ts}
-  
-  (a) elements of $ B \mapsto A$ are as follows
-  
-  (0,1),(1,0),(0,2),(2,0)(1,2),(2,1),(0,0),(1,1),(2,2)
-  
-  (b) The elements of $ B \mapsto A$ that are related by pointwise ordering are the following
-  
-  A(0,1) $\mapsto$ B(0,1), A(0,1) $\mapsto$ B(0,2), A(1,0) $\mapsto$ B(1,0), A(1,0) $\mapsto$ B(2,0)
-  
-  (c) the elements that are monotonic functions from $(B,\subseteq_B)$ to $(A,\subseteq_A)$ are the following
-  
-  $\{0 \mapsto 0, 1 \mapsto 1\}$, $\{0 \mapsto 0, 1 \mapsto 2\}$, $\{0 \mapsto 1, 1 \mapsto 1\}$, $\{0 \mapsto 1, 1 \mapsto 2\}$, $\{0 \mapsto 2, 1 \mapsto 1\}$, $\{0 \mapsto 2, 1 \mapsto 2, \}$
-  
-  (d) A monotonic function from $B \mapsto A$ to $B \mapsto A$ is the following
-  
-  
-  
-  
-  \end{ts}
-  
-  
+
   \end{document}
+
   
+
   
