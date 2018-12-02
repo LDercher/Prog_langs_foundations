@@ -27,6 +27,7 @@
 \newtheorem{defn}{Definition}
 \newtheorem{prob}{Problem}
 \newtheorem{bp}{book problem}
+\newtheorem{sol}{solution}
 
 \begin{document}
 
@@ -49,19 +50,60 @@
 
 \end{bp}
 
+\begin{sol}
+left-to-right \newline
+  \indent \indent \underline{($\lambda$x.$\lambda$y.x) ($\lambda$z.z)} (($\lambda$x.x)($\lambda$y.y)) \newline
+  $\leadsto$   ($\lambda$y.$\lambda$z.z) (\underline{($\lambda$x.x)($\lambda$y.y)}) \newline
+  $\leadsto$  \underline{($\lambda$y.$\lambda$z.z)($\lambda$y.y)} \newline
+  $\leadsto$ $\lambda$z.z \newline
+
+  right-to-left \newline
+  \indent \indent ($\lambda$x.$\lambda$y.x) ($\lambda$z.z) \underline{(($\lambda$x.x)($\lambda$y.y))} \newline
+  $\leadsto$   ($\lambda$x.$\lambda$y.x) \underline{($\lambda$z.z)($\lambda$y.y)} \newline
+  $\leadsto$  \underline{($\lambda$x.$\lambda$y.x)($\lambda$y.y)} \newline
+  $\leadsto$ [x/z]$\lambda$z.z \newline
+ 
+
+
+
+\end{sol}
+
 5.9, exercise 2.
 
 \begin{bp}
  for the purposes of this problem define  t\textdownarrow t' to means $\exists t''.t \leadsto* t'' \wedge t' \leadsto * t'' $ where $\leadsto$ is normal-order reduction (where the outersmost $\beta$-redex is reduced, and reduction proceeds under $\lambda$-binders). As usual, variables can be safely renamed, so that we consider $\lambda x.x$ equivalent to $\lambda y.y$, for example.
 
- For which of the following terms do we have t\textdownarrow$\lambda x.\lambda y.y$? Please indicated all the terms which satisfy this preperty.
+ For which of the following terms do we have t\textdownarrow$\lambda x.\lambda y.y$? Please indicated all the terms which satisfy this property.
 
  (a) $\lambda x. \lambda y.y$ \newline
  (b) $(\lambda x.x) \lambda y.y$ \newline
  (c) $( \lambda x.x x)( \lambda y.y) \lambda x. \lambda y.y$ \newline
- (d) $ \lambda x.( \lambda x. \lambda y.y y)( \lambda x.x)$
+ (d) $ \lambda x.( \lambda x. \lambda y.y y)( \lambda x.x)$ \newline
  (e) $ \lambda x.\lambda x.(\lambda y.y)x$
 \end{bp}
+
+\begin{sol}.\newline
+  (a) $\lambda x. \lambda y.y$ \newline
+   sol. If we safely rename x to z we have $\lambda z. \lambda y.y$ and therefore we have t\textdownarrow t' \newline
+  (b) $(\lambda x.x) \lambda y.y$ \newline
+   sol. This does not reduce to the form $\lambda x.\lambda y.y$ and therefore does not have the property t\textdownarrow t' \newline
+  (c) $( \lambda x.x x)( \lambda y.y) \lambda x. \lambda y.y$ \newline
+   sol. reducing to normal form we have. \newline
+   \underline{$( \lambda x.x x)( \lambda y.y) \lambda x. \lambda y.y$} \newline
+   $\leadsto$ $\underline{(( \lambda y.y) \lambda x. \lambda y.y)}(( \lambda y.y) \lambda x. \lambda y.y)$ \newline
+   $\leadsto$ $\underline{(\lambda x. \lambda y.y)(( \lambda y.y) \lambda x. \lambda y.y)}$ \newline
+   $\leadsto$ $\lambda x. \lambda y.y$ \newline
+   again if we safely rename x to z we have $\lambda z. \lambda y.y$ and therefore we have t\textdownarrow t'
+   (d) $ \lambda x.( \lambda x. \lambda y.y y)( \lambda x.x)$ \newline
+   sol. reducing to normal form we have. \newline
+   $ \lambda x.\underline{( \lambda x. \lambda y.y y)( \lambda x.x)}$ \newline
+   $\leadsto \lambda x.(\lambda y.y y)$ \newline
+   We cannot reduce this any further and hence this does not reduce to the form $\lambda x.\lambda y.y$ and therefore does not have the property t\textdownarrow t' \newline
+   (e) $ \lambda x.\lambda x.(\lambda y.y)x$ \newline
+   sol. This is already in normal for and hence  This does not reduce to the form $\lambda x.\lambda y.y$ and therefore does not have the property t\textdownarrow t' \newline
+
+
+\end{sol}
 
 6.8.1, exercises 2--3.
 
@@ -73,21 +115,40 @@
 
 \end{bp}
 
+\begin{sol}
+
+  (3) $\lambda fxy.fyx$
+
+\end{sol}
+
 6.8.2, exercises 2--3.
 
-\begin{bp}
+\begin{bp}. \newline
   (2)Suppose we wish to encode a data type consisting of basic colors $red$ and $blue$, with possible repeated modifier $light$. So example data elements are: $red$, $blue$, $light blue$, $light(light red)$, etc. \newline
   give definitionsfor the three constructors, $red$, $blue$, and $light$, using the Scott encoding.
 
   (3) Give definitions using the scott encoding for constructors $node$ and $leaf$ for a datatype of binary trees, with data stored at the nodes but not the leaves. So a tree like this, (insert picture of three with values only in internal nodes) $(node 1 leaf(node 2 leaf leaf))$
 \end{bp}
 
+\begin{sol}. \newline
+  (2) \newline
+  red = $\lambda r. \lambda b. \lambda l. r$ \newline
+  blue = $\lambda r. \lambda b. \lambda l. b$ \newline
+  light = $\lambda c. \lambda r. \lambda b. \lambda l. lc$ \newline
+  (3) \newline
+  node = $\lambda v. \lambda l. f v l l$ \newline
+  leaf = $ \lambda l.l$ 
+
+
+
+\end{sol}
+
 6.9.2, exercise 1.
 
 \begin{bp}
  One way to write a function $eqnaut$ to test whether two Peano numbers are equal is to remove a successor from each of them, until either both numbers are zero, in which case we return $true$; or else one is zero, and the other is not, in which we return $false$.
  (a) Based on this idea, define $eqnuat$ using recursive equations.
- (b) Translte your encoding into a lamda term using the Scott encoding. 
+ (b) Translate your encoding into a lamda term using the Scott encoding. 
 \end{bp}
 
 \begin{prob}
@@ -113,6 +174,56 @@
   \]
   Show (by natural number induction) that, for all encodings of natural numbers $m$ and $n$, we have $add\,m\,n = add'\,m\,n$.
 \end{prob}
+
+\begin{sol}. \newline
+  I will begin by replacing succ function with it's definition and reducing to normal form. \newline
+  \[
+    add = \lambda m.\lambda n.\lambda f.\lambda x.m \underline{(\lambda n. \lambda f. \lambda x. f \, (n\,f\,x))n\,f\,x}
+    \leadsto \lambda m.\lambda n.\lambda f.\lambda x. m\,f\,(n\,f\,x)
+  \]
+  now I consider the base case for induction.
+  add 0 n and add' 0 n 
+  we have
+  
+add 0 n = \newline
+$ \underline{ \lambda m.\lambda n.\lambda f.\lambda x. m\,f\,(n\,f\,x) (\lambda f. \lambda x. x) n } $ \newline
+$\leadsto \underline{ \lambda n. \lambda f. \lambda x. n f (nfx)(\lambda f. \lambda x.x)}$ \newline
+$ \leadsto \underline{\lambda f. \lambda x. ( \lambda f . \lambda x.x) f n f x}$ \newline
+$ \leadsto \underline{\lambda x. ( \lambda f. \lambda x.x) x n x} $  \newline
+$ \leadsto \underline{(\lambda f. \lambda x. x) x n }$ \newline
+$ \leadsto n$ \newline
+
+add' 0 n = \newline
+$ \underline{ \lambda m.\lambda n.\lambda f.\lambda x. m\,f\,(n\,f\,x) (\lambda f. \lambda x. x) n } $ \newline
+$\leadsto \underline{ \lambda n. \lambda f. \lambda x. n f (nfx)(\lambda f. \lambda x.x)}$ \newline
+$ \leadsto \underline{\lambda f. \lambda x. ( \lambda f . \lambda x.x) f n f x}$ \newline
+$ \leadsto \underline{\lambda x. ( \lambda f. \lambda x.x) x n x} $  \newline
+$ \leadsto \underline{(\lambda f. \lambda x. x) x n }$ \newline
+$ \leadsto n$ \newline
+Now I will assume add m n = add' m n for m \newline
+And now I will show add Sm n = add' Sm n \newline
+add Sm n = \newline
+$ \underline{\lambda m.\lambda n.\lambda f.\lambda x. m\,f\,(n\,f\,x)( \lambda s. \lambda z s (m s z)) n }$ \newline
+$ \leadsto \underline{\lambda n. \lambda f. \lambda x. n f(n f x)( \lambda s. \lambda z. s (m s z))}$ \newline
+$ \leadsto \underline{ \lambda f. \lambda x. ( \lambda s. \lambda z. s (m s z))f n f x} $ \newline
+$ \leadsto \underline{ \lambda x. ( \lambda s. \lambda z. s (m s z))x n x} $ \newline
+$ \leadsto \underline{ ( \lambda s. \lambda z. s (m s z)x n)} $ \newline
+$ \leadsto x( m x n)$ \newline
+
+add' Sm n = \newline
+$ \underline{\lambda m.\lambda n.\lambda f.\lambda x. m\,f\,(n\,f\,x)( \lambda s. \lambda z s (m s z)) n }$ \newline
+$ \leadsto \underline{\lambda n. \lambda f. \lambda x. n f(n f x)( \lambda s. \lambda z. s (m s z))}$ \newline
+$ \leadsto \underline{ \lambda f. \lambda x. ( \lambda s. \lambda z. s (m s z))f n f x} $ \newline
+$ \leadsto \underline{ \lambda x. ( \lambda s. \lambda z. s (m s z))x n x} $ \newline
+$ \leadsto \underline{ ( \lambda s. \lambda z. s (m s z)x n)} $ \newline
+$ \leadsto x( m x n)$ \newline
+
+and hence we can say add m n = add' m n 
+
+
+
+
+\end{sol}
 
 \begin{prob}
   $(\star)$ A \emph{snoc-list} is a cons-list in reverse: the sequence $1, 2, 3$ is represented
